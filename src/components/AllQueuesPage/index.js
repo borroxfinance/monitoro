@@ -57,9 +57,7 @@ const getSuccessRatio = ()=>{
     return `${Math.floor(percentage)} %`
 }
 useEffect(()=>{
-    const apiUrl = process.env.NODE_ENV==='development' 
-    ? `/` 
-    : ''
+    const apiUrl = process.env.API_URL
     const fetchData = async () => {
          const resp = await fetch(`${apiUrl}api/getAllQueues`)
          const respBody = await resp.json()
