@@ -103,15 +103,14 @@ function QueueDetailsPage(props){
                 <JobDetailsHeader/>
                 <div className='QueueDetailsPage-scrollable-container'>
                     {
-                        allJobsDetails.length>0?
-                    allJobsDetails.map((job)=>{
-                        return(
-                            <>
-                            <JobDetails key={job.jobId} jobInstance={job}/>
-                            </>
-                        )
-                    }):
-                    <div className='QueueDetailsPage-search-subtitle' style={{marginTop:'25px'}}>No jobs found</div>
+                        allJobsDetails.length > 0 ?
+                        allJobsDetails.map((job)=>{
+                            return(
+                                <>
+                                <JobDetails key={job.jobId} jobInstance={job}/>
+                                </>
+                            )
+                        }): <div className='QueueDetailsPage-search-subtitle' style={{marginTop:'25px'}}>No jobs found</div>
                     }
                 </div>
                 </div>
