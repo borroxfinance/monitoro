@@ -18,7 +18,7 @@ function QueueDetailsPage(props){
         },
         allJobsDetails:[]
     }
-    const apiUrl = process.env.API_URL
+    const apiUrl = process.env.REACT_APP_API_URL
     const [jobData,setJobData] = useState(initialState)
     const [selectedCategory,setSelectedCategory] = useState('all')
     const [searchKey,setSearchKey] = useState('')
@@ -27,7 +27,7 @@ function QueueDetailsPage(props){
     const [showSearchResults,setShowSearchResults] = useState(false)
     const [searchResults, setSearchResults] = useState({})
     const [backBtnClicked,setBackBtnClicked] = useState(false)
-    
+
     const triggerSearch = () => {
         setSearchQuery(`?skey=${searchKey}&sval=${searchValue}`)
         setShowSearchResults(true)
@@ -40,7 +40,7 @@ function QueueDetailsPage(props){
     }
 
     useEffect(()=>{
-        fetch(`${apiUrl}api/viewQueueJobs/${props.queueName}/${selectedCategory}`)
+        fetch(`${apiUrl}viewQueueJobs/${props.queueName}/${selectedCategory}`)
         .then((response)=>response.json())
         .then((responseBody)=>{
             setJobData(responseBody)
@@ -86,7 +86,7 @@ function QueueDetailsPage(props){
                         <img src={backIcon} className='QueueDetailsPage-back-btn' onClick={triggerAnim} alt='back'/>
                         {props.queueName}
                     </div>
-                    <Search 
+                    <Search
                             searchKey={searchKey}
                             setSearchKey={setSearchKey}
                             searchValue={searchValue}

@@ -9,7 +9,7 @@ import Header from './components/Header'
 const router=(page,setPage)=>{
   const {pageName,queueName} = page;
   switch(pageName){
-    case 'QueueDetailsPage': 
+    case 'QueueDetailsPage':
       return <QueueDetailsPage queueName={queueName} changePage={()=>{setPage({pagename:'AllQueuesPage',queueName:''})}}/>;
     case 'AllQueuesPage':
       return <AllQueuesPage changePage={(queueName)=>setPage({pageName:'QueueDetailsPage',queueName:queueName})}/>;

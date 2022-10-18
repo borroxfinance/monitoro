@@ -57,10 +57,10 @@ const getSuccessRatio = ()=>{
     return `${Math.floor(percentage)} %`
 }
 useEffect(()=>{
-    const apiUrl = process.env.API_URL
-    console.log(`Making request to ${apiUrl}api/getAllQueues`)
+    const apiUrl = process.env.REACT_APP_API_URL
+    console.log(`Making request to ${apiUrl}getAllQueues`)
     const fetchData = async () => {
-         const resp = await fetch(`${apiUrl}api/getAllQueues`)
+         const resp = await fetch(`${apiUrl}getAllQueues`)
          const respBody = await resp.json()
          dispatch({type: 'setAll', data: respBody})
         }
@@ -82,10 +82,10 @@ return (
             {
                 state.allQueues.map((queue)=>{
                     return (
-                    <QueueOverview 
-                    key={queue.name} 
-                    name={queue.name} 
-                    data={queue.queueOverview} 
+                    <QueueOverview
+                    key={queue.name}
+                    name={queue.name}
+                    data={queue.queueOverview}
                     selectQueue={selectQueue(queue.name)}/>
                     )
                 })
